@@ -1,21 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: sans-serif;
-    color: #0c9a9a
+    color: #0c9a9a;
 }
 
 h1,h2{
     font-family: monospace;
-    color: #1c6a6a
+    color: #1c6a6a;
 }
 
 h1{
-    font-size: 40px
+    font-size: 40px;
+    margin-bottom: 22px;
 }
 
 h2{
-    font-size: 25px
+    font-size: 25px;
+    margin-bottom: 10px;
 }
 
 p {
-    font-size: 16px
+    font-size: 16px;
+}
+
+.main-text {
+    text-align: justify;
+    margin-bottom: 22px;
+}
+
+.author-text {
+    font-size: 22px;
+}
+.container {
+    width: 1440px;
+    margin: 20px auto 0 auto;
+}
+
+.blog-post {
+    width: 75%;
+    float:left;
+    padding-right: 30px;
+}
+
+.other-posts {
+    width: 25%;
+    float:left;
+}
+
+.other {
+    border-top: 1px solid #064040;
+    padding-top: 20px;
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
 }
