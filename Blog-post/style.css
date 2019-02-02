@@ -35,6 +35,8 @@ p {
 
 .author-text {
     font-size: 22px;
+    float: left;
+    margin-left: 15px;
 }
 .container {
     width: 1440px;
@@ -44,12 +46,16 @@ p {
 .blog-post {
     width: 75%;
     float:left;
-    padding-right: 30px;
+    padding-right: 40px;
+    position: relative;
+    border-top: 1px solid #064040;
+    border-right: 1px solid #064040;
 }
 
 .other-posts {
     width: 25%;
     float:left;
+    padding-left: 30px
 }
 
 .other {
@@ -61,4 +67,41 @@ p {
     content: "";
     display: table;
     clear: both;
+}
+.more-posts {
+    margin-bottom: 40px;
+}
+
+.other img {
+    height: 100px;
+    width: auto;
+    border-radius: 50%;
+    float: left;
+}
+
+.blog-post img {
+    height: auto;
+    width:500px;
+    margin-bottom: 20px;
+}
+
+.date {
+    position: absolute;
+    top: 10px;
+    right:100px;
+}
+
+.header {
+    width: 1440px;
+}
+
+.header h1 {
+    float: left;
+    margin-left: 20px;
+}
+
+.header img {
+    height 40px;
+    width:43px;
+    float:left;
 }
