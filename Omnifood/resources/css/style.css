@@ -1,18 +1,18 @@
-/*_________________________________________*/
-/*Orange color #e67e22 Dark orange #cf6d17 */
-/*_________________________________________*/
-
-
+/*Learning notes: these are my study notes after the course exercises that outline what I learnt from the CSS code (what does it do) and would normally not be included in my code for projects*/
 
 /*_________________________________________*/
 /*Basic Set-up*/
 /*_________________________________________*/
+
+/*Learning note: gets rid of default margin and padding settings, and allows us to set our own, using border-box model; the asterix implies this rule to all elements */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+/*Learning note: create your default style settings for your html doc from background color, to font attributes and text-rendering*/
 
 html {
     background-color: #fcfcfc;
@@ -23,16 +23,31 @@ html {
     text-rendering:optimizeLegibility;
 }
 
+.clearfix {zoom: 1}
+.clearfix:after {
+    content: '.'; 
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
 /*_________________________________________*/
 /*Re-usable Components*/
 /*_________________________________________*/
+
+/*Learning note: this ensures the row class elements will not exceed 1140px (responsive designing for wider screens); the .row margin attribute shows how we centre text & is a shorthand for top-80px left-0 bottom-80px right-0. */
 
 .row {
     max-width: 1140px;
     margin: 0 auto;
 }
 
-.section-features {
+/*Learning note: this ensures the row class elements will not exceed 1140px (responsive designing for wider screens)*/
+
+.section-features,
+.section-cities,
+.section-steps {
     padding: 80px 0; 
 }
 
@@ -43,12 +58,16 @@ html {
 /*Headings*/
 /*_________________________________________*/
 
+/*Learning note: group common attributes for different elements in one place (see below), this ensures no unnecessary repetition*/
+
 h1,
 h2,
 h3{
     font-weight: 300;
     text-transform: uppercase;
 }
+
+/*Learning note: assign attributes for specific element like this*/
 
 h1 {
     margin-top: 0;
@@ -67,6 +86,8 @@ h2 {
     letter-spacing: 1px;
 }
 
+/*Learning note: use the after feature to insert content using css. This will insert content after the element you select here, in this case a orange line after h2. NOTE: Always need to specify content, if none, just add a space like below*/
+
 h2:after {
     display: block;
     height: 2px;
@@ -82,7 +103,7 @@ h3{
     margin-bottom: 15px;
 }
 
-
+/*Learning note: Ensure to label your css stylesheet for ease of scanability (especially for big projects where it can get really long)*/
 
 /*Paragraphs*/
 /*_________________________________________*/
@@ -93,6 +114,8 @@ h3{
     margin-left: 15%
 }
 
+/*Learning note: this is an example of how you can specify elements within other elements to give them specific attributes for the elements in that specific class ONLY.*/
+
 .box p {
     font-size: 90%;
     line-height: 145%;
@@ -101,6 +124,8 @@ h3{
 
 /*Icons*/
 /*_________________________________________*/
+
+/*Learning note: for htis project we saved icons as fonts (vector files) and here assigned the icons attributes like we would for fonts*/
 
 .icon-big {
     font-size: 350%;
@@ -113,6 +138,7 @@ h3{
 /*Buttons*/
 /*_________________________________________*/
 
+/*Learning note: here we can set attributes for button in the link/hover/active/visited states, as well as style how they transition between the different states*/
 
 .btn:link,
 .btn:visited {
@@ -143,6 +169,8 @@ h3{
     background-color: #cf6d17;
 }
 
+/*Learning note: assign buttons a class that describes their appearance and/or function*/
+
 .btn-full:hover,
 .btn-full:active {
     border: 1px solid #e67e22;
@@ -158,10 +186,12 @@ h3{
 /*Header*/
 /*_________________________________________*/
 
+/*Learning note: this is how we created the top nav bar*/
 
-/*Nav*/
+/*Nav-bar*/
 /*_________________________________________*/
 
+/*Learning note: we re-sized the logo proportionally by setting the height, and setting the width to auto for the specified height*/
 
 .logo {
     height: 100px;
@@ -169,6 +199,8 @@ h3{
     float: left;
     margin-top: 20px;
 }
+
+/*Learning note: we created list items and floated them to the right, and made the logo float left*/
 
 .main-nav {
     float: right;
@@ -180,6 +212,8 @@ h3{
     display:inline-block;
     margin-left: 40px;
 }
+
+/*Learning note: styling the nav links*/
 
 .main-nav li a:link,
 .main-nav li a:visited{
@@ -197,8 +231,10 @@ h3{
     border-bottom: 2px solid #e67e22
 }
 
-/*Section 1 of Body*/
+/*Header section*/
 /*_________________________________________*/
+
+/*Learning note: background image with solid colour overlay, and text on the image (hero-text-box)*/
 
 header {
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(img/hero.jpg);
@@ -215,6 +251,208 @@ header {
     transform: translate(-50%, -50%);
 }
 
-/*Section 2 of Body*/
 /*_________________________________________*/
+/*Features section*/
+/*_________________________________________*/
+
+.section-features .long-copy {
+    margin-bottom: 30px;
+}
+
+
+/*_________________________________________*/
+/*Meals section*/
+/*_________________________________________*/
+
+.section-meals {
+    padding 0;
+}
+
+/*Learning note: creating a photo gallery (can also be made with captions, like in my portfolio website), using ul and li. Also added transitions and transform attributes for extra professional and cool styling features*/
+
+.meals-showcase {
+    list-style: none;
+    width: 100%;
+}
+
+.meals-showcase li {
+    display: block;
+    float: left;
+    width: 25%;
+}
+
+.meal-photo {
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.meal-photo img {
+    opacity: 0.7;
+    width: 100%;
+    height: auto;
+    transform: scale(1.15);
+}
+
+.meal-photo img:hover {
+    opacity: 1;
+    transform: scale(1.04);
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+
+/*_________________________________________*/
+/*How it works section*/
+/*_________________________________________*/
+
+/*Learning note: a new way to select an element to syle is say the number that it appears in the html- first-child, last-child, etc. (see below); check e-book for other selectors*/
+
+.section-steps {
+    background-color: #f4f4f4;
+}
+
+.steps-box:first-child {
+    text-align:right;
+    padding-right: 3%;
+    margin-top: 30px;
+}
+
+.steps-box: last-child {
+    padding-left: 6%
+    margin-top: 70px;
+}
+
+.app-screen {
+    width:40%;
+}
+
+.works-step {
+    margin-bottom: 50px;
+}
+
+.works-step div {
+    color: #e67e22;
+    border: 2px solid #e67e22;
+    border-radius: 50%;
+    display: inline-block;
+    width: 55px;
+    height: 55px;
+    text-align:center;
+    padding: 5px;
+    float: left;
+    font-size: 150%;
+    margin-right: 25px;
+}
+
+.works-step:last-of-type {
+    margin-bottom: 80px;
+}
+
+.btn-app img {
+    height: 50px;
+    width: auto;
+    margin-right: 10px;
+}
+
+
+/*_________________________________________*/
+/*Cities section*/
+/*_________________________________________*/
+
+.section-cities {
+    padding 0;
+}
+
+.city-feature {
+    list-style: none;
+    width 100%;
+}
+
+
+.city-pic {
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.city-pic img {
+    display: inline-block;
+    float: left;
+    opacity: 0.7;
+    width: 110%;
+    height: auto;
+    transform: scale(1.15);
+}
+
+.city-pic img:hover {
+    opacity: 1;
+    transform: scale(1.06);
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+.city h3 {
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+.city-feature {
+    padding-left: 20px;
+}
+
+.city-feature li{
+    padding-bottom: 2%
+}
+
+.city-feature i {
+    display: inline-block;
+    color:#e67e22;
+    font-size: 125%;
+    text-align: center;
+    width: 30px;
+    margin-top: -4px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.city li a:link,
+.city li a:visited{
+    text-decoration: none;
+    color:#555;
+    padding-bottom: 1px;
+    border-bottom: 1px solid #555;
+    transition: color 0.5s, border-bottom 0.5s;
+}
+
+.city li a:active,
+.city li a:hover{
+    color:#cf6d17;
+    border-bottom: 1px solid #cf6d17;
+}
+
+
+
+/*_________________________________________*/
+
+/*_________________________________________*/
+/*Orange color #e67e22 Dark orange #cf6d17
+
+
+Secrets to align text and icons
+
+1. Set a negative margin to the top of the icons
+margin-top: -2px
+
+2. Increase the line-height of the icons to 120%
+line-height: 120%
+
+3. Vertical align the icons
+vertical-align: middle;
+
+
+*/
+/*_________________________________________*/
+
+
 
