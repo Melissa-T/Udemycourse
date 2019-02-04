@@ -273,6 +273,21 @@ input[type=submit]:active {
 }
 
 
+/*Mobile-nav*/
+
+.mobile-nav-icon {
+    float: right;
+    margin-top: 30px;
+    cursor: pointer;
+    display: none;
+}
+
+.mobile-nav-icon i{
+    font size: 800%;
+    color: #fff;
+}
+
+
 /*Sticky-nav*/
 .sticky {
     position: fixed;
@@ -294,7 +309,7 @@ input[type=submit]:active {
 .sticky .main-nav {
     float: right;
     list-style: none;
-    margin-top: 15px;
+    margin-top: 5px;
 }
 
 .sticky .logo {display:none;}
@@ -709,6 +724,39 @@ footer p{
 }
 
 
+
+/*____Animations____________________*/
+
+/*_________________________________________*/
+
+
+.js--wp-1 {
+    opacity: 0;
+}
+
+.js--wp-1.animated {
+    opacity: 1;
+}
+
+
+.js--wp-2 {
+    opacity: 0;
+}
+
+.js--wp-2.animated {
+    opacity: 1;
+}
+
+.js--wp-3 {
+    opacity: 0;
+    animation-duration: 1s;
+}
+
+.js--wp-3.animated {
+    opacity: 1;
+}
+
+.js--wp-3 {animation-duration: 1s;}
 
 /*_________________________________________*/
 

@@ -4,7 +4,7 @@
         .hero-text-box {
         position: absolute;
         width: 100%;
-            padding: 0 2%;
+        padding: 0 2%;
     }
     
     .row {padding: 0 2%;}
@@ -60,7 +60,39 @@
     .col {width: 100%;
     margin: 0 0 4% 0;}
     
-    .main-nav {display:none;}
+    *.main-nav {display:none;}*
+    
+    .mobile-nav-icon {display:inline-block;}
+    
+    .main-nav {
+        float:left;
+        margin-top: 30px;
+        margin-left: 25px;}
+    
+    .main-nav li {display:block}
+    
+    .main-nav li a:visited,
+    .main-nav li a:link  {
+        display:block;
+        border: 0;
+        padding: 10px 0;
+        font-size: 100%;
+    }
+    
+    /*Sticky-nav*/
+
+
+.sticky .main-nav li a:link,
+.sticky .main-nav li a:visited {padding: 10px 0;}
+
+.sticky .main-nav {
+    float: left;
+    margin-top: 10px;
+}
+
+.sticky .mobile-nav-icon i { color: #555; }
+
+
     
     
     h1 {font-size: 180%;}
