@@ -9,18 +9,21 @@
 * {
     margin: 0;
     padding: 0;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
 /*Learning note: create your default style settings for your html doc from background color, to font attributes and text-rendering*/
 
-html {
+html,
+body {
     background-color: #fcfcfc;
     color:#555;
     font-family: 'Lato', 'Arial', sans-serif;
     font-size: 20px;
     font-weight: 300;
     text-rendering:optimizeLegibility;
+    overflow-x: hidden;
 }
 
 .clearfix {zoom: 1}
@@ -47,12 +50,15 @@ html {
 
 .section-features,
 .section-cities,
-.section-steps {
+.section-steps,
+.section-testimonials,
+.section-form,
+.section-plans {
     padding: 80px 0; 
 }
 
 .box{
-    padding 1%;
+    padding: 1%;
 }
 
 a:active,
@@ -171,6 +177,7 @@ input[type=submit] {
     font-weight: 300;
     text-decoration: none;
     border-radius: 200px;
+    -webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;
     transition: background-color 0.2s, border 0.2s, color 0.2s;
 }
 
@@ -229,8 +236,17 @@ input[type=submit]:active {
     margin-top: 20px;
 }
 
+.logo-black {
+    display: none;
+    height: 50px;
+    width: auto;
+    float: left;
+    margin-top: 5px 0;
+}
+
 /*Learning note: we created list items and floated them to the right, and made the logo float left*/
 
+/*Main-nav*/
 .main-nav {
     float: right;
     list-style: none;
@@ -252,13 +268,40 @@ input[type=submit]:active {
     text-transform:uppercase;
     font-size:90%;
     border-bottom: 2px solid transparent;
+    -webkit-transition: border-bottom 0.2s;
     transition: border-bottom 0.2s;
 }
 
-.main-nav li a:hover,
-.main-nav li a:active{
-    border-bottom: 2px solid #e67e22
+
+/*Sticky-nav*/
+.sticky {
+    position: fixed;
+    top: 0;
+    left 0;
+    width: 100%;
+    background-color: rgba(252, 252, 252, 0.98);
+    box-shadow: 0 2px 2px #ebebeb;
+    z-index: 9999;
 }
+
+
+.sticky .main-nav li a:link,
+.sticky .main-nav li a:visited {
+    padding: 16px 0;
+    color: #555;
+}
+
+.sticky .main-nav {
+    float: right;
+    list-style: none;
+    margin-top: 15px;
+}
+
+.sticky .logo {display:none;}
+.sticky .logo-black {display: block;}
+
+
+
 
 /*Header section*/
 /*_________________________________________*/
@@ -266,6 +309,7 @@ input[type=submit]:active {
 /*Learning note: background image with solid colour overlay, and text on the image (hero-text-box)*/
 
 header {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.7))), url(img/hero.jpg);
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(img/hero.jpg);
     background-size: cover;
     background-position: center;
@@ -278,6 +322,7 @@ header {
     width: 1140px;
     top:50%;
     left:50%;
+    -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
 
@@ -285,18 +330,14 @@ header {
 /*Features section*/
 /*_________________________________________*/
 
-.section-features .long-copy {
-    margin-bottom: 30px;
-}
+.section-features .long-copy {margin-bottom: 30px;}
 
 
 /*_________________________________________*/
 /*Meals section*/
 /*_________________________________________*/
 
-.section-meals {
-    padding 0;
-}
+.section-meals {padding: 0;}
 
 /*Learning note: creating a photo gallery (can also be made with captions, like in my portfolio website), using ul and li. Also added transitions and transform attributes for extra professional and cool styling features*/
 
@@ -322,13 +363,18 @@ header {
     opacity: 0.7;
     width: 100%;
     height: auto;
+    -webkit-transform: scale(1.15);
     transform: scale(1.15);
 }
 
 .meal-photo img:hover {
     opacity: 1;
+    -webkit-transform: scale(1.04);
     transform: scale(1.04);
+    -webkit-transition: opacity 0.5s, -webkit-transform 0.5s;
+    transition: opacity 0.5s, -webkit-transform 0.5s;
     transition: transform 0.5s, opacity 0.5s;
+    transition: transform 0.5s, opacity 0.5s, -webkit-transform 0.5s;
 }
 
 
@@ -338,9 +384,7 @@ header {
 
 /*Learning note: a new way to select an element to syle is say the number that it appears in the html- first-child, last-child, etc. (see below); check e-book for other selectors*/
 
-.section-steps {
-    background-color: #f4f4f4;
-}
+.section-steps {background-color: #f4f4f4;}
 
 .steps-box:first-child {
     text-align:right;
@@ -348,18 +392,14 @@ header {
     margin-top: 30px;
 }
 
-.steps-box: last-child {
-    padding-left: 6%
+.steps-box:last-child {
+    padding-left: 6%;
     margin-top: 70px;
 }
 
-.app-screen {
-    width:40%;
-}
+.app-screen {width:40%;}
 
-.works-step {
-    margin-bottom: 50px;
-}
+.works-step {margin-bottom: 50px;}
 
 .works-step div {
     color: #e67e22;
@@ -375,9 +415,7 @@ header {
     margin-right: 25px;
 }
 
-.works-step:last-of-type {
-    margin-bottom: 80px;
-}
+.works-step:last-of-type {margin-bottom: 80px;}
 
 .btn-app img {
     height: 50px;
@@ -390,13 +428,11 @@ header {
 /*Cities section*/
 /*_________________________________________*/
 
-.section-cities {
-    padding 0;
-}
+.section-cities {padding: 0;}
 
 .city-feature {
     list-style: none;
-    width 100%;
+    width: 100%;
 }
 
 
@@ -413,13 +449,18 @@ header {
     opacity: 0.7;
     width: 110%;
     height: auto;
+    -webkit-transform: scale(1.15);
     transform: scale(1.15);
 }
 
 .city-pic img:hover {
     opacity: 1;
+    -webkit-transform: scale(1.06);
     transform: scale(1.06);
+    -webkit-transition: opacity 0.5s, -webkit-transform 0.5s;
+    transition: opacity 0.5s, -webkit-transform 0.5s;
     transition: transform 0.5s, opacity 0.5s;
+    transition: transform 0.5s, opacity 0.5s, -webkit-transform 0.5s;
 }
 
 .city h3 {
@@ -427,9 +468,7 @@ header {
     padding-left: 20px;
 }
 
-.city-feature {
-    padding-left: 20px;
-}
+.city-feature {padding-left: 20px;}
 
 .city-feature li{
     padding-bottom: 2%;
@@ -453,6 +492,7 @@ header {
     color:#555;
     padding-bottom: 1px;
     border-bottom: 1px solid rgba(255, 165, 0, 0.32);
+    -webkit-transition: color 0.5s, border-bottom 0.5s;
     transition: color 0.5s, border-bottom 0.5s;
 }
 
@@ -467,6 +507,7 @@ header {
 /*_________________________________________*/
 
 .section-testimonials {
+    background-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.8)), to(rgba(0, 0, 0, 0.8))), url(img/back-customers.jpg);
     background-image:linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(img/back-customers.jpg);
     background-size: cover;
     background-position: center;
@@ -475,9 +516,6 @@ header {
     color: #fcfcfc
 }
 
-.section-testimonials h2{
-    margin-top: 80px;
-}
 
 blockquote {
     padding: 2%;
@@ -513,21 +551,17 @@ cite img{
 /*Sign Up*/
 /*_________________________________________*/
 
-.section-plans h2{
-    margin-top: 80px;
-}
 
-.section-plans {
-    background-color: #f4f4f4;
-}
+.section-plans {background-color: #f4f4f4;}
 
 .plan-box{
     background-color: #fcfcfc;
     border-radius: 5px;
     width: 90%;
     margin-left: 5%;
-    margin-bottom: 25%;
+    margin-bottom: 10%;
     margin-top: 5%;
+    -webkit-box-shadow: 0 2px 2px #ededed;
     box-shadow: 0 2px 2px #ededed
 }
 
@@ -548,17 +582,11 @@ cite img{
     font-weight: 300;
 }
 
-plan-price-meal{
-    font-size 50%;
-}
+plan-price-meal{font-size: 50%;}
 
-.plan-box ul{
-    list-style:none;
-}
+.plan-box ul{list-style: none;}
 
-.plan-box ul li{
-    padding: 5px 0;
-}
+.plan-box ul li{padding: 5px 0;}
 
 .plan-box div:first-child {
     background-color: #f8f8f8;
@@ -577,10 +605,6 @@ plan-price-meal{
 /*Contact Form*/
 /*_________________________________________*/
 
-.section-form h2{
-    margin-top: 80px;
-}
-
 .contact-form{
     width:60%;
     margin: 0 auto;
@@ -596,13 +620,9 @@ textarea {
     border: 1px solid #ccc;
 }
 
-textarea{
-    height 100px
-}
+textarea{height: 100px}
 
-input[type=checkbox]{
-    margin: 10px 5px 10px 0;
-}
+input[type=checkbox]{margin: 10px 5px 10px 0;}
 
 *:focus {outline:none}
 
@@ -635,9 +655,7 @@ footer {
 }
 
 .footer-nav li:last-child,
-.socia-links li:last-child {
-    margin-right: 0;
-}
+.socia-links li:last-child {margin-right: 0;}
 
 
 .footer-nav li a:link,
@@ -647,6 +665,7 @@ footer {
     text-decoration: none;
     border: 0;
     color: #888;
+    -webkit-transition: color 0.2s;
     transition: color 0.2s;
 }
 
@@ -667,28 +686,21 @@ footer {
 .ion-social-twitter,
 .ion-social-googleplus,
 .ion-social-instagram{
+    -webkit-transition: color 0.2s;
     transition: color 0.2s
 }
 
 
-.ion-social-facebook:hover {
-    color: #3b5998;
-}
+.ion-social-facebook:hover {color: #3b5998;}
 
 
-.ion-social-twitter:hover {
-    color: #55acee;
-}
+.ion-social-twitter:hover {color: #55acee;}
 
 
-.ion-social-googleplus:hover {
-    color: #dd4b39;
-}
+.ion-social-googleplus:hover {color: #dd4b39;}
 
 
-.ion-social-instagram:hover {
-    color: #fccc63;
-}
+.ion-social-instagram:hover {color: #fccc63;}
 
 footer p{
     color: #888;
